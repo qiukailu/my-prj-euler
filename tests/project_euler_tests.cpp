@@ -47,6 +47,27 @@ TEST (project_euler, problem3)
     EXPECT_NO_THROW(a.calc_prime_divisors());
 }
 
+TEST (project_euler, problem4)
+{
+  int maxint = 0;
+  int ii = 0;
+  int jj = 0;
+  for (int i = 100; i <= 999; i++ ) {
+    for (int j = 100; j <= 999; j++) {
+        myInt mint(i*j);
+        if (mint.check_palindrome()) {
+            if (i*j > maxint) {
+                maxint = i*j;
+                ii = i;
+                jj = j;
+            }
+        }
+    }
+  }
+
+  EXPECT_EQ(maxint, 906609);
+}
+
 TEST (project_euler, problem18)
 {
     int input[] =
