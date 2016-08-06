@@ -1,39 +1,18 @@
-#set your language below
-language: c
+language: 
+  - cpp
 
-#set language version. This is only required if you use the default Shippable image for your build
-compiler:
-  - gcc
 
-build:
-    #commands in this section run on your build machine and not inside your CI container.
-    pre_ci:
-      - echo "Start Shippable build"
+install:
+  - sudo apt-get update
+  - sudo apt-get install cmake
 
-    #commands in this section run inside your CI container. In addition, any commands such as ls, in this section can be used to skip default processing for CI.
-    ci:
-      - sudo apt-get update
-      - sudo apt-get install cmake
-      - sudo apt-get install libgtest-dev
-      - cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp *.a /usr/lib && cd -
-      - chmod 755 build_all.sh && ./build_all.sh
-    post_ci:
-    # project-euler
-    #          |----- shippable
-    #                    | ----- testresults
-    #          |----- cmake_build
-    #                    | ----- tests
-      - mkdir -p shippable/testresults
-      - export GTEST_OUTPUT="xml:${PWD}/shippable/testresults/test_report.xml"
-      - cd cmake_build/tests
-      - ./MyTester
-      - cd ..
-      - find . -name \*.gcno
-      - find . -name \*.gcda
-      - cd ..
-    on_success:
-      - echo "Build finished successfully"
-      - export CODECOV_TOKEN="3127eb27-3b95-4758-8db1-15258184b9c5"
-      - bash <(curl -s https://codecov.io/bash)
-    on_failure:
-      - echo "Build failed" 
+script:
+  - chmod 755 build_all.sh && ./build_all.sh
+  - cd cmake_build/tests
+  - ./MyTester
+  - cd ..
+  - find . -name \*.gcno
+  - find . -name \*.gcda
+
+after_success:
+  - echo "Build finished successfully"
