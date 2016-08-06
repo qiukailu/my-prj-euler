@@ -3,7 +3,6 @@ language:
 
 compiler:
   - gcc
-  - clang
 
 install:
   - sudo apt-get update
@@ -19,6 +18,7 @@ script:
   - find . -name \*.gcno
   - find . -name \*.gcda
   - cd ..
+  - gcov -o .
 after_success:
   - echo "Build finished successfully"
   - bash <(curl -s https://codecov.io/bash)
