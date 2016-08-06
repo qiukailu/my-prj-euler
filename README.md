@@ -11,7 +11,8 @@ My current design is to make a library of tools or utilities. All the actual pro
 
 ### How to build ###
 
-* run cmake
+* build system is cmake
+* mkdir cmake_build && cd cmake_build && cmake .. && make
 
 ### Status ###
 

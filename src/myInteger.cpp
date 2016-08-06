@@ -62,7 +62,6 @@ int myInt::num_divisors()
 
 void myInt::print() 
 {
-    std::cout << "Value of data: " << m_data << "\n";
     if (m_prime_vec.size() > 0) {
         std::cout << "List of prime numbers stored: " << std::endl;
 
