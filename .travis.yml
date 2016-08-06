@@ -5,7 +5,9 @@ language:
 install:
   - sudo apt-get update
   - sudo apt-get install cmake
-
+  - sudo apt-get install libgtest-dev
+  - cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp *.a /usr/local/lib/ && cd -
+ 
 script:
   - chmod 755 build_all.sh && ./build_all.sh
   - cd cmake_build/tests
