@@ -4,8 +4,12 @@ language:
 compiler:
   - gcc
 
+before_install:
+  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
+  - sudo apt-get update -q
+  - sudo apt-get install gcc-4.8 -y
+
 install:
-  - sudo apt-get update
   - sudo apt-get install cmake
   - sudo apt-get install libgtest-dev
   - cd /usr/src/gtest && sudo cmake CMakeLists.txt && sudo make && sudo cp *.a /usr/local/lib/ && cd -
@@ -18,7 +22,6 @@ script:
   - find . -name \*.gcno
   - find . -name \*.gcda
   - cd ..
-  - gcov -o ${PWD}
 after_success:
   - echo "Build finished successfully"
   - bash <(curl -s https://codecov.io/bash)
