@@ -1,7 +1,6 @@
 language: 
   - cpp
 
-
 install:
   - sudo apt-get update
   - sudo apt-get install cmake
@@ -18,3 +17,4 @@ script:
 
 after_success:
   - echo "Build finished successfully"
+  - bash <(curl -s https://codecov.io/bash)
