@@ -1,6 +1,10 @@
 language: 
   - cpp
 
+compiler:
+  - gcc
+  - clang
+
 install:
   - sudo apt-get update
   - sudo apt-get install cmake
@@ -14,7 +18,7 @@ script:
   - cd ..
   - find . -name \*.gcno
   - find . -name \*.gcda
-
+  - cd ..
 after_success:
   - echo "Build finished successfully"
   - bash <(curl -s https://codecov.io/bash)
