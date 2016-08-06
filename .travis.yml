@@ -18,7 +18,7 @@ script:
   - find . -name \*.gcno
   - find . -name \*.gcda
   - cd ..
-  - gcov -o .
+  - gcov -o ${PWD}
 after_success:
   - echo "Build finished successfully"
   - bash <(curl -s https://codecov.io/bash)
