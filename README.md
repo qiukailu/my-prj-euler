@@ -17,6 +17,5 @@ My current design is to make a library of tools or utilities. All the actual pro
 ### Status ###
 
 [![Build Status](https://travis-ci.org/qiukailu/my-prj-euler.svg?branch=master)](https://travis-ci.org/qiukailu/my-prj-euler)
-[![Run Status](https://api.shippable.com/projects/57a6733831aacf0b00f64e4d/badge?branch=master)](https://app.shippable.com/projects/57a6733831aacf0b00f64e4d)
 [![codecov](https://codecov.io/gh/qiukailu/my-prj-euler/branch/master/graph/badge.svg)](https://codecov.io/gh/qiukailu/my-prj-euler)
 
