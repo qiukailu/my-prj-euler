@@ -6,7 +6,6 @@
 #include <stdint.h>
 #include <math.h>
 #include <stdlib.h>
-#include "include/prime_gen.h"
 // extended integer class
 class myInt {
   public:
@@ -31,7 +30,9 @@ class myInt {
     // return 0 if not, 1 otherwise
     int check_palindrome();
 
-    int is_prime();
+    static bool is_prime_num(uint64_t inum);
+
+    bool is_prime();
 
     int is_divisor(int value);
 

@@ -82,21 +82,25 @@ int myInt::check_palindrome()
     }
 }
 
-int myInt::is_prime() 
+bool myInt::is_prime_num(uint64_t ivalue)
 {
-    if (m_data <= 0) {
+    if (ivalue <= 0) {
         std::cout << "Non-positive integer input for prime checking ... " << std::endl;
-        return 0;
+        return false;
     }
-    if (m_data == 1) return 0;
-    if (m_data == 2) return 1;
+    if (ivalue == 2) return true;
     uint64_t divider = 2;
-    if ( m_data % divider == 0 ) return 0;
-    while (divider * divider < m_data) {
+    if ( ivalue % divider == 0 ) return false;
+    while (divider * divider < ivalue) {
         divider ++;
-        if (m_data % divider == 0 ) return 0;
+        if (ivalue % divider == 0 ) return false;
     }
-    return 1;
+    return true;
+}
+
+bool myInt::is_prime() 
+{
+    return myInt::is_prime_num(m_data);
 }
 
 int myInt::is_divisor(int value) {
