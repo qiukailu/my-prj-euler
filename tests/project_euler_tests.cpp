@@ -3,6 +3,7 @@
 #include <gtest/gtest.h>
 #include "include/myInteger.h"
 #include "include/mytree.h"
+#include "include/mydate.h"
 
 TEST (project_euler, problem1)
 {
@@ -105,4 +106,24 @@ TEST (project_euler, problem18)
      }
 
      EXPECT_EQ(leafs[0]->max_sum(), 1074);
+}
+
+TEST ( project_euler, problem19 ) {
+    int dow = 0;
+    int dom = 1;
+    int mon = 1;
+    int year= 1900;
+    int sundays = 0;
+    myDate md(dow, dom, mon, year);
+    while (1) {
+        md.nextDay();
+        md.todayIs(dow, dom, mon, year);
+        if (dow == 6 && dom == 1 && year >= 1901) {
+            sundays ++;
+        }
+        if (dom == 2 && mon == 12 && year == 2000)
+            break;
+    }
+
+    EXPECT_EQ(sundays, 171);
 }
