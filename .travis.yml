@@ -6,6 +6,7 @@ language:
 
 compiler:
   - gcc
+  - clang
 
 before_install:
 #  - sudo add-apt-repository ppa:ubuntu-toolchain-r/test -y
@@ -25,6 +26,4 @@ script:
   - find . -name \*.gcno
   - find . -name \*.gcda
   - cd ..
-after_success:
-  - echo "Build finished successfully"
-  - bash <(curl -s https://codecov.io/bash)
+  - if [["$CC" == "gcc"]]; then bash <(curl -s https://codecov.io/bash)
