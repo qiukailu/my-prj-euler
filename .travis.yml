@@ -26,4 +26,4 @@ script:
   - find . -name \*.gcno
   - find . -name \*.gcda
   - cd ..
-  - if [["$CC" == "gcc"]]; then bash <(curl -s https://codecov.io/bash); fi
+  - if [[ "$CC" == "gcc" ]]; then bash <(curl -s https://codecov.io/bash); fi
