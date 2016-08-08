@@ -2,17 +2,13 @@
 
 ### Brief Intro  ###
 
-This repo contains my progress on solving problems on [ProjectEuler](https://projecteuler.net).
-
-I have currently worked out this many problems:
-![alt text](https://projecteuler.net/profile/luqiukai.png)
-
-My current design is to make a library of tools or utilities. All the actual problems then serve as test cases.
+This repo contains my c++ code to solve problems on [ProjectEuler](https://projecteuler.net). My current design is to make a library of tools or utilities. All the actual problems then serve as test cases.
 
 ### How to build ###
 
 * build system is cmake
 * mkdir cmake_build && cd cmake_build && cmake .. && make
+* googletest is needed to build the test cases
 
 ### Status ###
 
